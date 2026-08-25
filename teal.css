@@ -1,0 +1,610 @@
+/* ==========================================================================
+   Mint & Teal Dark - Obsidian Theme
+   ==========================================================================
+   Side Navigation: #d6f5e9 (Mint)
+   Top Navigation:  #5FCFB6 (Teal)
+   Editor & Body:   Dark Mode Palette
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Root Variables & Dark Theme Palette
+   -------------------------------------------------------------------------- */
+.theme-dark {
+  /* Brand / Key Accents */
+  --accent-mint: #d6f5e9;
+  --accent-teal: #5FCFB6;
+  --accent-teal-hover: #4dc2a9;
+  --accent-teal-active: #3cb097;
+  --accent-mint-dark: #12382c;
+  --accent-mint-text: #0e2d24;
+
+  --color-accent: #5FCFB6;
+  --color-accent-1: #d6f5e9;
+  --color-accent-2: #5FCFB6;
+  --interactive-accent: #5FCFB6;
+  --interactive-accent-hover: #4dc2a9;
+
+  /* Base Dark Grays */
+  --color-base-00: #14171b; /* Main workspace/note background */
+  --color-base-05: #161a1f;
+  --color-base-10: #191e24;
+  --color-base-20: #1f252d;
+  --color-base-25: #252c36;
+  --color-base-30: #2d3540;
+  --color-base-35: #37414f;
+  --color-base-40: #495567;
+  --color-base-50: #68778d;
+  --color-base-60: #8d9bb0;
+  --color-base-70: #b5c2d4;
+  --color-base-100: #e6edf3; /* Main text */
+
+  /* App Backgrounds */
+  --background-primary: #14171b;
+  --background-primary-alt: #191e24;
+  --background-secondary: #d6f5e9;
+  --background-secondary-alt: #9de3c8;
+
+  /* Text Colors */
+  --text-normal: #e6edf3;
+  --text-muted: #8d9bb0;
+  --text-faint: #5b697e;
+  --text-on-accent: #0c261e;
+  --text-accent: #5FCFB6;
+  --text-accent-hover: #d6f5e9;
+  --text-selection: rgba(95, 207, 182, 0.35);
+  --caret-color: #5FCFB6;
+
+  /* Interactive Elements */
+  --interactive-normal: #1f252d;
+  --interactive-hover: #2d3540;
+  --interactive-success: #5FCFB6;
+
+  /* Borders & Dividers */
+  --border-width: 1px;
+  --background-modifier-border: rgba(255, 255, 255, 0.09);
+  --background-modifier-border-hover: #5FCFB6;
+  --background-modifier-border-focus: #5FCFB6;
+  --divider-color: rgba(255, 255, 255, 0.08);
+
+  /* Top Navigation & Tabs Variables */
+  --titlebar-background: #5FCFB6;
+  --titlebar-background-focused: #5FCFB6;
+  --titlebar-text-color-focused: #0e3028;
+  --titlebar-text-color: #123d33;
+  --tab-container-background: #5FCFB6;
+  --tab-background-active: #14171b;
+  --tab-text-color: #0e3028;
+  --tab-text-color-focused: #08221c;
+  --tab-text-color-active: #d6f5e9;
+  --tab-text-color-focused-active: #ffffff;
+  --tab-outline-color: transparent;
+
+  /* Status Bar */
+  --status-bar-background: #101215;
+  --status-bar-border-color: rgba(255, 255, 255, 0.06);
+  --status-bar-text-color: #8d9bb0;
+
+  /* Shadows */
+  --shadow-s: 0 2px 6px rgba(0, 0, 0, 0.35);
+  --shadow-m: 0 8px 20px rgba(0, 0, 0, 0.45);
+  --shadow-l: 0 16px 36px rgba(0, 0, 0, 0.6);
+}
+
+/* --------------------------------------------------------------------------
+   2. Top Navigation (Tabs & Title Bar) - #5FCFB6
+   -------------------------------------------------------------------------- */
+/* Top Title Bar */
+.titlebar,
+.titlebar-inner {
+  background-color: var(--accent-teal) !important;
+  color: #0e3028 !important;
+  border-bottom: 1px solid rgba(0, 45, 35, 0.12);
+}
+
+.titlebar-button {
+  color: #0e3028 !important;
+  opacity: 0.85;
+  transition: opacity 0.15s ease, background-color 0.15s ease;
+}
+
+.titlebar-button:hover {
+  background-color: rgba(0, 45, 35, 0.18) !important;
+  opacity: 1;
+}
+
+/* Tab Header Container (Top Nav Area) */
+.workspace-tabs:not(.mod-stacked) .workspace-tab-header-container,
+.workspace-tab-header-container {
+  background-color: var(--accent-teal) !important;
+  border-bottom: none !important;
+  padding: 4px 6px 0 6px;
+}
+
+/* Individual Tab Headers */
+.workspace-tab-header {
+  border-radius: 8px 8px 0 0;
+  margin-right: 3px;
+  color: #0e3028 !important;
+  font-weight: 500;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.workspace-tab-header:hover:not(.is-active) {
+  background-color: rgba(0, 45, 35, 0.14) !important;
+  color: #051612 !important;
+}
+
+.workspace-tab-header-inner-title {
+  color: inherit !important;
+}
+
+.workspace-tab-header-inner-icon svg {
+  color: inherit !important;
+}
+
+/* Active Tab Header: Flows into Dark Editor Body */
+.workspace-tab-header.is-active {
+  background-color: var(--color-base-00) !important;
+  color: var(--accent-mint) !important;
+  box-shadow: 0 -2px 0 0 var(--accent-mint) inset;
+  font-weight: 600;
+}
+
+.workspace-tab-header.is-active .workspace-tab-header-inner-title {
+  color: var(--accent-mint) !important;
+}
+
+.workspace-tab-header.is-active .workspace-tab-header-inner-icon svg {
+  color: var(--accent-mint) !important;
+}
+
+/* Tab Close Button */
+.workspace-tab-header-inner-close-button {
+  color: #0e3028 !important;
+  opacity: 0.7;
+  border-radius: 4px;
+}
+
+.workspace-tab-header.is-active .workspace-tab-header-inner-close-button {
+  color: var(--color-base-60) !important;
+}
+
+.workspace-tab-header-inner-close-button:hover {
+  opacity: 1;
+  background-color: rgba(0, 45, 35, 0.25) !important;
+  color: #000000 !important;
+}
+
+.workspace-tab-header.is-active .workspace-tab-header-inner-close-button:hover {
+  background-color: rgba(255, 255, 255, 0.12) !important;
+  color: #ffffff !important;
+}
+
+/* Tab Action Buttons (+ New Tab, Tab List) */
+.workspace-tab-header-new-tab,
+.workspace-tab-header-tab-list,
+.workspace-tabs .workspace-tab-header-container-inner + .workspace-tab-header-new-tab {
+  color: #0e3028 !important;
+  border-radius: 6px;
+}
+
+.workspace-tab-header-new-tab:hover,
+.workspace-tab-header-tab-list:hover {
+  background-color: rgba(0, 45, 35, 0.18) !important;
+  color: #04140f !important;
+}
+
+/* --------------------------------------------------------------------------
+   3. Side Navigation (Left Sidebar & Ribbon) - #d6f5e9
+   -------------------------------------------------------------------------- */
+/* Left Ribbon */
+.workspace-ribbon.mod-left {
+  background-color: #9ee3c8 !important;
+  border-right: 1px solid rgba(0, 45, 35, 0.15) !important;
+}
+
+.workspace-ribbon.mod-left .clickable-icon,
+.workspace-ribbon.mod-left .workspace-ribbon-collapse-btn {
+  color: #0e2d24 !important;
+}
+
+.workspace-ribbon.mod-left .clickable-icon:hover,
+.workspace-ribbon.mod-left .clickable-icon.is-active {
+  background-color: rgba(0, 45, 35, 0.14) !important;
+  color: #051611 !important;
+}
+
+/* Left Sidebar Container */
+.workspace-split.mod-left-split,
+.workspace-split.mod-left-split .workspace-tabs,
+.workspace-split.mod-left-split .workspace-leaf,
+.workspace-split.mod-left-split .view-content,
+.workspace-split.mod-left-split .nav-files-container {
+  background-color: var(--accent-mint) !important;
+  color: var(--accent-mint-text) !important;
+}
+
+.workspace-split.mod-left-split .workspace-tab-header-container {
+  background-color: #9ee3c8 !important;
+  border-bottom: 1px solid rgba(0, 45, 35, 0.12) !important;
+}
+
+.workspace-split.mod-left-split .workspace-tab-header {
+  color: #0e2d24 !important;
+}
+
+.workspace-split.mod-left-split .workspace-tab-header.is-active {
+  background-color: var(--accent-mint) !important;
+  color: #041610 !important;
+  box-shadow: none !important;
+}
+
+/* Left Sidebar Dividers */
+.workspace-split.mod-left-split .workspace-leaf-resize-handle,
+.workspace-ribbon.mod-left + .workspace-split.mod-left-split {
+  border-color: rgba(0, 45, 35, 0.15) !important;
+}
+
+/* File Tree / Navigation Items */
+.workspace-split.mod-left-split .nav-file-title,
+.workspace-split.mod-left-split .nav-folder-title,
+.workspace-split.mod-left-split .tree-item-self {
+  color: #0e2d24 !important;
+  font-weight: 500;
+  border-radius: 6px;
+  margin: 1px 4px;
+  transition: background-color 0.12s ease, color 0.12s ease;
+}
+
+.workspace-split.mod-left-split .nav-folder-collapse-indicator,
+.workspace-split.mod-left-split .tree-item-icon svg,
+.workspace-split.mod-left-split .nav-file-title-content,
+.workspace-split.mod-left-split .nav-folder-title-content {
+  color: #0e2d24 !important;
+}
+
+/* Hover & Active States on Mint Navigation */
+.workspace-split.mod-left-split .nav-file-title:hover,
+.workspace-split.mod-left-split .nav-folder-title:hover,
+.workspace-split.mod-left-split .tree-item-self:hover {
+  background-color: rgba(0, 45, 35, 0.1) !important;
+  color: #03130e !important;
+}
+
+.workspace-split.mod-left-split .nav-file-title.is-active,
+.workspace-split.mod-left-split .tree-item-self.is-active {
+  background-color: rgba(0, 45, 35, 0.2) !important;
+  color: #000000 !important;
+  font-weight: 600;
+}
+
+/* Sidebar Search & Input Controls */
+.workspace-split.mod-left-split .search-input-container {
+  margin: 6px 8px;
+}
+
+.workspace-split.mod-left-split .search-input-container input {
+  background-color: rgba(255, 255, 255, 0.75) !important;
+  border: 1px solid rgba(0, 45, 35, 0.22) !important;
+  color: #0e2d24 !important;
+  border-radius: 6px;
+}
+
+.workspace-split.mod-left-split .search-input-container input::placeholder {
+  color: #3b5f54 !important;
+}
+
+.workspace-split.mod-left-split .search-input-container input:focus {
+  background-color: #ffffff !important;
+  border-color: #0e2d24 !important;
+  outline: none !important;
+  box-shadow: 0 0 0 2px rgba(14, 45, 36, 0.15);
+}
+
+.workspace-split.mod-left-split .clickable-icon {
+  color: #0e2d24 !important;
+}
+
+.workspace-split.mod-left-split .clickable-icon:hover {
+  background-color: rgba(0, 45, 35, 0.12) !important;
+  color: #000000 !important;
+}
+
+/* --------------------------------------------------------------------------
+   4. Main Editor Workspace (Dark Mode)
+   -------------------------------------------------------------------------- */
+.workspace-leaf-content[data-type="markdown"],
+.workspace-leaf-content[data-type="markdown"] .view-content,
+.markdown-source-view,
+.markdown-rendered {
+  background-color: var(--color-base-00) !important;
+  color: var(--text-normal);
+}
+
+/* Typography & Headings */
+.markdown-rendered h1,
+.cm-header-1 {
+  color: var(--accent-mint) !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid rgba(173, 235, 210, 0.18);
+}
+
+.markdown-rendered h2,
+.cm-header-2 {
+  color: var(--accent-teal) !important;
+  font-weight: 650 !important;
+  letter-spacing: -0.01em;
+}
+
+.markdown-rendered h3,
+.cm-header-3 {
+  color: #7ee2cb !important;
+  font-weight: 600 !important;
+}
+
+.markdown-rendered h4,
+.cm-header-4 {
+  color: #9fead7 !important;
+  font-weight: 600 !important;
+}
+
+.markdown-rendered h5,
+.cm-header-5 {
+  color: #c0f3e5 !important;
+  font-weight: 600 !important;
+}
+
+.markdown-rendered h6,
+.cm-header-6 {
+  color: var(--color-base-70) !important;
+  font-weight: 600 !important;
+}
+
+/* Links & Internal Links */
+.cm-s-obsidian span.cm-link,
+.cm-s-obsidian span.cm-hmd-internal-link,
+.markdown-rendered a,
+a.internal-link {
+  color: var(--accent-teal) !important;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s ease, text-shadow 0.15s ease;
+}
+
+.cm-s-obsidian span.cm-link:hover,
+.cm-s-obsidian span.cm-hmd-internal-link:hover,
+.markdown-rendered a:hover,
+a.internal-link:hover {
+  color: var(--accent-mint) !important;
+  text-decoration: underline;
+  text-decoration-color: rgba(173, 235, 210, 0.5);
+}
+
+/* Tags */
+.tag,
+a.tag,
+.cm-s-obsidian span.cm-hashtag {
+  background-color: rgba(95, 207, 182, 0.14) !important;
+  color: var(--accent-mint) !important;
+  border: 1px solid rgba(95, 207, 182, 0.3) !important;
+  border-radius: 12px;
+  padding: 1px 8px;
+  font-size: 0.85em;
+  font-weight: 500;
+  transition: all 0.15s ease;
+}
+
+.tag:hover,
+a.tag:hover {
+  background-color: rgba(95, 207, 182, 0.25) !important;
+  border-color: var(--accent-teal) !important;
+  color: #ffffff !important;
+}
+
+/* Inline Code */
+:not(pre) > code,
+.cm-s-obsidian span.cm-inline-code {
+  background-color: rgba(95, 207, 182, 0.1) !important;
+  color: var(--accent-mint) !important;
+  border: 1px solid rgba(95, 207, 182, 0.2) !important;
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-family: var(--font-monospace);
+  font-size: 0.9em;
+}
+
+/* Code Blocks */
+pre,
+.cm-s-obsidian pre.HyperMD-codeblock,
+.markdown-rendered pre {
+  background-color: #101216 !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 8px;
+  padding: 12px 16px;
+}
+
+/* Syntax Highlighting */
+.cm-s-obsidian span.cm-keyword,
+.cm-s-obsidian span.cm-operator {
+  color: var(--accent-teal) !important;
+  font-weight: 600;
+}
+
+.cm-s-obsidian span.cm-string {
+  color: var(--accent-mint) !important;
+}
+
+.cm-s-obsidian span.cm-number,
+.cm-s-obsidian span.cm-atom {
+  color: #ffb86c !important;
+}
+
+.cm-s-obsidian span.cm-def,
+.cm-s-obsidian span.cm-variable-2 {
+  color: #8be9fd !important;
+}
+
+.cm-s-obsidian span.cm-comment {
+  color: #6272a4 !important;
+  font-style: italic;
+}
+
+/* Blockquotes */
+blockquote,
+.markdown-rendered blockquote {
+  border-left: 3px solid var(--accent-teal) !important;
+  background-color: rgba(95, 207, 182, 0.05) !important;
+  color: var(--color-base-70) !important;
+  padding: 8px 16px;
+  border-radius: 0 6px 6px 0;
+  margin: 12px 0;
+}
+
+/* Callouts */
+.callout {
+  border-radius: 8px;
+  border: 1px solid rgba(95, 207, 182, 0.3) !important;
+  background-color: rgba(95, 207, 182, 0.06) !important;
+}
+
+.callout[data-callout="note"],
+.callout[data-callout="tip"],
+.callout[data-callout="info"] {
+  --callout-color: 95, 207, 182;
+  --callout-icon: lucide-info;
+}
+
+.callout-title {
+  color: var(--accent-mint) !important;
+  font-weight: 600;
+}
+
+.callout-icon svg {
+  color: var(--accent-teal) !important;
+}
+
+/* Tables */
+.markdown-rendered table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 16px 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.markdown-rendered th {
+  background-color: rgba(95, 207, 182, 0.12) !important;
+  color: var(--accent-mint) !important;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-bottom: 1px solid rgba(95, 207, 182, 0.25);
+}
+
+.markdown-rendered td {
+  padding: 8px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.markdown-rendered tr:hover td {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+/* Checkboxes */
+input[type="checkbox"] {
+  accent-color: var(--accent-teal) !important;
+  cursor: pointer;
+}
+
+.task-list-item-checkbox {
+  border-radius: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   5. Modals, Popovers & Quick Switcher
+   -------------------------------------------------------------------------- */
+.modal,
+.prompt {
+  background-color: var(--color-base-10) !important;
+  border: 1px solid rgba(95, 207, 182, 0.35) !important;
+  border-radius: 10px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65) !important;
+}
+
+.prompt-input {
+  background-color: var(--color-base-00) !important;
+  border: 1px solid rgba(95, 207, 182, 0.4) !important;
+  color: var(--text-normal) !important;
+}
+
+.prompt-input:focus {
+  border-color: var(--accent-teal) !important;
+  box-shadow: 0 0 0 2px rgba(95, 207, 182, 0.2) !important;
+}
+
+.suggestion-item.is-selected {
+  background-color: rgba(95, 207, 182, 0.2) !important;
+  color: #ffffff !important;
+  border-radius: 6px;
+}
+
+.suggestion-highlight {
+  color: var(--accent-mint) !important;
+  font-weight: 700;
+}
+
+/* Buttons */
+button.mod-cta {
+  background-color: var(--accent-teal) !important;
+  color: #082019 !important;
+  font-weight: 600 !important;
+  border-radius: 6px;
+  transition: background-color 0.15s ease;
+}
+
+button.mod-cta:hover {
+  background-color: var(--accent-teal-hover) !important;
+}
+
+button:not(.mod-cta) {
+  background-color: var(--color-base-20) !important;
+  border: 1px solid var(--background-modifier-border) !important;
+  color: var(--text-normal) !important;
+  border-radius: 6px;
+}
+
+button:not(.mod-cta):hover {
+  background-color: var(--color-base-30) !important;
+  border-color: var(--accent-teal) !important;
+}
+
+/* --------------------------------------------------------------------------
+   6. Custom Scrollbars
+   -------------------------------------------------------------------------- */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-teal);
+}
+
+.workspace-split.mod-left-split ::-webkit-scrollbar-thumb {
+  background: rgba(0, 45, 35, 0.18);
+}
+
+.workspace-split.mod-left-split ::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 45, 35, 0.35);
+}
